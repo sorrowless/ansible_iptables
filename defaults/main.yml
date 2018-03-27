@@ -1,5 +1,6 @@
 ---
-iptables:
+iptables: {}
+iptables_defaults:
   # Enable whole role
   enabled: yes
   # Flush all rules before adding role ones

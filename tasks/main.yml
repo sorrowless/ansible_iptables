@@ -1,3 +1,7 @@
 ---
+- name: Iptables | Merge default values with user ones
+  set_fact:
+    iptables: "{{ iptables_defaults | combine(iptables) }}"
+
 - include_tasks: rules.yml
   when: iptables.enabled
