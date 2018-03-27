@@ -25,6 +25,8 @@ iptables:
   raw_rules: []
   # Deny all which were not explicitly allowed
   deny_all_unallowed: yes
+  # Allow ICMP
+  icmp_allowed: yes
 ```
 
 #### Dependencies

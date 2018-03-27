@@ -44,5 +44,5 @@ $IPTABLES {{rule}}
 
 # Drop all other
 {% if iptables.deny_all_unallowed %}
-$IPTABLES -A INPUT -j DROP
+$IPTABLES -t filter --policy INPUT DROP
 {% endif %}
