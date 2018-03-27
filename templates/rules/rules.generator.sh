@@ -30,10 +30,22 @@ $IPTABLES -A INPUT -p udp --sport 123 -j ACCEPT
 {% endif %}
 
 # Allowed ports.
-{% for port in iptables.allowed_tcp_ports %}
+{% for port in iptables.default_allowed_tcp_ports %}
 $IPTABLES -A INPUT -p tcp -m tcp --dport {{port}} -j ACCEPT
 {% endfor %}
-{% for port in iptables.allowed_udp_ports %}
+{% for port in iptables.group_allowed_tcp_ports %}
+$IPTABLES -A INPUT -p tcp -m tcp --dport {{port}} -j ACCEPT
+{% endfor %}
+{% for port in iptables.host_allowed_tcp_ports %}
+$IPTABLES -A INPUT -p tcp -m tcp --dport {{port}} -j ACCEPT
+{% endfor %}
+{% for port in iptables.default_allowed_udp_ports %}
+$IPTABLES -A INPUT -p udp -m udp --dport {{port}} -j ACCEPT
+{% endfor %}
+{% for port in iptables.group_allowed_udp_ports %}
+$IPTABLES -A INPUT -p udp -m udp --dport {{port}} -j ACCEPT
+{% endfor %}
+{% for port in iptables.host_allowed_udp_ports %}
 $IPTABLES -A INPUT -p udp -m udp --dport {{port}} -j ACCEPT
 {% endfor %}
 
