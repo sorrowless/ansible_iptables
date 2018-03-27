@@ -18,9 +18,13 @@ iptables:
   # Allow NTP
   ntp_allowed: yes
   # List of allowed TCP ports
-  allowed_tcp_ports: [22, 80, 443]
+  default_allowed_tcp_ports: [22, 80, 443]
+  group_allowed_tcp_ports: []
+  host_allowed_tcp_ports: []
   # List of allowed UDP ports
-  allowed_udp_ports: []
+  default_allowed_udp_ports: []
+  group_allowed_udp_ports: []
+  host_allowed_udp_ports: []
   # Any raw rules can be added
   raw_rules: []
   # Deny all which were not explicitly allowed
