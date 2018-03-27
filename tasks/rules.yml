@@ -1,0 +1,17 @@
+---
+- name: Iptables | Install iptables
+  package:
+    name: netfilter-persistent
+    state: latest
+
+- name: Iptables | Put generated rules to {{ ansible_host }}
+  template:
+    src: rules/rules.generator.sh
+    dest: /root/iptables-rules-generator.sh
+    mode: 0755
+
+- name: Iptables | Load generated rules
+  command: /root/iptables-rules-generator.sh
+
+- name: Iptables | Save existing rules
+  command: netfilter-persistent save

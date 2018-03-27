@@ -1,0 +1,17 @@
+---
+iptables:
+  # Enable whole role
+  enabled: yes
+  # Flush all rules before adding role ones
+  flush_all: yes
+  # Allow NTP
+  ntp_allowed: yes
+  # List of allowed TCP ports
+  allowed_tcp_ports: [22, 80, 443]
+  # List of allowed UDP ports
+  allowed_udp_ports: []
+  # Any raw rules can be added
+  raw_rules: []
+  # Deny all which were not explicitly allowed
+  deny_all_unallowed: yes
+
