@@ -4,6 +4,19 @@
     name: netfilter-persistent
     state: latest
 
+- name: Iptables | Ensure that netfilter-persistent plugins directory exists
+  file:
+    path: /usr/share/netfilter-persistent/plugins.d/
+    state: directory
+
+- name: Iptables | Ensure ip4v rules save plugin
+  copy:
+    src: 15-ip4tables
+    dest: /usr/share/netfilter-persistent/plugins.d/15-ip4tables
+    mode: 0755
+    owner: root
+    group: root
+
 - name: Iptables | Put generated rules to {{ ansible_host }}
   template:
     src: rules/rules.generator.sh
