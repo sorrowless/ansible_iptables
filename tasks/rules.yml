@@ -17,6 +17,11 @@
     owner: root
     group: root
 
+- name: Iptables | Ensure netfilter rules directory exists
+  file:
+    path: /etc/iptables
+    state: directory
+
 - name: Iptables | Put generated rules to {{ ansible_host }}
   template:
     src: rules/rules.generator.sh
