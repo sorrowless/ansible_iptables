@@ -1,8 +1,11 @@
 ---
 - name: Iptables | Install iptables
   package:
-    name: netfilter-persistent
+    name: "{{ item }}"
     state: latest
+  with_items:
+    - iptables
+    - netfilter-persistent
 
 - name: Iptables | Ensure that netfilter-persistent plugins directory exists
   file:
