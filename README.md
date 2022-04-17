@@ -26,6 +26,7 @@ iptables:
   group_allowed_udp_ports: []
   host_allowed_udp_ports: []
   # Any raw rules can be added
+  default_raw_rules: []
   raw_rules: []
   # Deny all which were not explicitly allowed
   deny_all_unallowed: yes
