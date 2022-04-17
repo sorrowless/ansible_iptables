@@ -1,16 +1,17 @@
 galaxy_info:
-  author: Stanislaw Bogatkin
+  author: Stan Bogatkin
   description: Ansible role to install and configure iptables
   company: Personal project
-
+  role_name: iptables
+  namespace: sorrowless
   license: Apache
-
   min_ansible_version: 2.4
-
   platforms:
   - name: Ubuntu
     versions:
     - xenial
+    - bionic
+    - focal
 
   galaxy_tags: [iptables, firewall]
 

@@ -63,6 +63,11 @@ idempotent_add '-A INPUT -p udp -m udp --dport {{port}} -j ACCEPT'
 idempotent_add '-A INPUT -p udp -m udp --dport {{port}} -j ACCEPT'
 {% endfor %}
 
+# Default raw rules
+{% for rule in iptables.default_raw_rules %}
+idempotent_add '{{rule}}'
+{% endfor %}
+
 # Raw rules
 {% for rule in iptables.raw_rules %}
 idempotent_add '{{rule}}'
