@@ -22,6 +22,7 @@ function idempotent_add {
   else
     echo "That rule doesn't exists in rules list, add it"
     $IPTABLES $RULE
+    RC=$?
   fi
   return $RC
 }
