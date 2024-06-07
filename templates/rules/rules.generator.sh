@@ -1,7 +1,6 @@
 #!/bin/bash
 
-IPTABLES=/sbin/iptables
-
+IPTABLES="/usr/bin/env iptables"
 {% if iptables.flush_all %}
 # Clean all
 $IPTABLES -F
