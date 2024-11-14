@@ -14,7 +14,8 @@ $IPTABLES -t mangle -X
 function idempotent_add {
   RULE="$1"
   echo "Check rule $RULE"
-  iptables-save | grep -- "$RULE"
+  CHECK_RULE=$(echo $RULE | sed -E 's/-(A|I)\ ([a-zA-Z]+)\ [0-9 ]*(.*)/-C \2 \3/g')
+  iptables $CHECK_RULE
   RC=$?
   if [[ $RC == 0 ]]; then
     echo "That rule already exists in rules list"
