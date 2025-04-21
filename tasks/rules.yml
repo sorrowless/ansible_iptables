@@ -7,6 +7,10 @@
   with_items:
     - iptables
     - netfilter-persistent
+  register: result
+  retries: 5
+  delay: 10
+  until: result is not failed
 
 - name: Iptables | Ensure that netfilter-persistent plugins directory exists
   become: yes
