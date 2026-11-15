@@ -78,3 +78,10 @@ idempotent_add '{{rule}}'
 {% if iptables.deny_all_unallowed %}
 $IPTABLES -t filter --policy INPUT DROP
 {% endif %}
+
+# Always restart docker if it exists
+# Other way you definitely will suck when access to your machine is done via
+# docker container (e.g. you have VPN in container and access machine itself
+# via that container). In this case docker rules already overridden at this
+# moment and all you can done is to restart docker service
+systemctl restart docker || true
